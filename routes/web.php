@@ -16,7 +16,11 @@ use function PHPUnit\Framework\fileExists;
 */
 
 Route::get('/blogs', function () {
-    return view('blogs');
+    return view('blogs',[
+        'blogs' =>Blog::All(),
+    ]
+
+);
 });
  
 
