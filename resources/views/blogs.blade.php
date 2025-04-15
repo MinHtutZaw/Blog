@@ -9,25 +9,26 @@
 </head>
 
 <body>
-    <?php foreach ($blogs as $blog): ?>
+    
+    @foreach ($blogs as $blog)
 
         <h2>
-               <?= $blog->title; ?>
+               {{$blog->title}}
         </h2>
 
 
         <div>
 
 
-            <p><?= $blog->intro; ?></p>
+            <p>{{$blog->intro}}</p>
         
-          <p>Created at <?= $blog->date?></p>
-          <a href="blogs/<?= $blog->slug  ?>"> See more</a>
+          <p>Created at {{$blog->date}}  </p>
+          <a href="/blogs/{{$blog->slug}}  "> See more</a>
         </div>
 
 
 
-    <?php endforeach; ?>
+    @endforeach
 
 </body>
 
