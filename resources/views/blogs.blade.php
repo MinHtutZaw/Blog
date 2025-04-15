@@ -1,23 +1,23 @@
-@extends('layout')
+<x-layout>
+  <x-slot name="title">
+    <title>All Blogs</title>
+  </x-slot>
 
-@section('title')
- <title>All Blogs</title>
-@endsection
+  
+    @foreach ($blogs as $blog)
 
-@section('content')
-    
-@foreach ($blogs as $blog)
+    <h2>
+      {{$blog->title}}
+    </h2>
 
-<h2>
-       {{$blog->title}}
-</h2>
+    <div>
+      <p>{{$blog->intro}}</p>
 
-<div>
-    <p>{{$blog->intro}}</p>
+      <p>Created at {{$blog->date}} </p>
+      <a href="/blogs/{{$blog->slug}}  "> See more</a>
+    </div>
+    @endforeach
+  
 
-  <p>Created at {{$blog->date}}  </p>
-  <a href="/blogs/{{$blog->slug}}  "> See more</a>
-</div>
-@endforeach
 
-@endsection
+</x-layout>

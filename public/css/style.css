@@ -1,5 +1,88 @@
-body{
+body {
     background-color: white;
     max-width: 600px;
     margin: auto;
+    text-decoration: none;
+}
+
+:root {
+    --text-color: #565360;
+    --main-color: #0065ff;
+}
+
+/* Global */
+.mainheading {
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 2.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.heading {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    text-decoration: none;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+}
+
+header .logo span {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--main-color);
+  
+}
+
+header .navbar span {
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0; /* Remove default margin */
+}
+
+.navbar li {
+    display: inline-block; /* Ensure horizontal layout */
+}
+
+.navbar a {
+    padding: 10px 15px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+/* Hamburger menu icon */
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#menu-toggle {
+    display: none;
 }

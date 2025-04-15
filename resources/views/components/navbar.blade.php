@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!-- Navbar -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @yield('title')
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<header>
-    <!-- Navbar -->
+  <header>
       <a href="../html/index.html" class="logo"> <span> SDC</span> </a>
 
       <!-- hamburger menu  -->
@@ -50,12 +41,4 @@
           </a>
         </li>
       </ul>
-    </header>
-    @yield('content')
-
-
-
-
-</body>
-
-</html>
+</header>
