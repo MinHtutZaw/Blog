@@ -1,35 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+@section('title')
+ <title>All Blogs</title>
+@endsection
 
-<body>
+@section('content')
     
-    @foreach ($blogs as $blog)
+@foreach ($blogs as $blog)
 
-        <h2>
-               {{$blog->title}}
-        </h2>
+<h2>
+       {{$blog->title}}
+</h2>
 
+<div>
+    <p>{{$blog->intro}}</p>
 
-        <div>
+  <p>Created at {{$blog->date}}  </p>
+  <a href="/blogs/{{$blog->slug}}  "> See more</a>
+</div>
+@endforeach
 
-
-            <p>{{$blog->intro}}</p>
-        
-          <p>Created at {{$blog->date}}  </p>
-          <a href="/blogs/{{$blog->slug}}  "> See more</a>
-        </div>
-
-
-
-    @endforeach
-
-</body>
-
-</html>
+@endsection

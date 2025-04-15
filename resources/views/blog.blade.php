@@ -1,26 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
+@section('title')
+ <title>{{$blog->title}}</title>
+@endsection
 
-<body>
-
-
-
-
+@section('content')
     <h1>{{$blog->title}} </h1>
     
     <p>{{$blog->body}}</p>
     
     <a href="/blogs">Back</a>
-
-
-
-</body>
-
-</html>
+@endsection
