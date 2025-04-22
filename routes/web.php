@@ -15,7 +15,7 @@ use function PHPUnit\Framework\fileExists;
 |
 */
 
-Route::get('/blogs', function () {
+Route::get('/', function () {
     return view('blogs',[
         'blogs' =>Blog::All(),
     ]
@@ -26,6 +26,7 @@ Route::get('/blogs', function () {
 
 Route::get('/blogs/{blog}',function($slug){
     return view('blog',[
-        'blog' => Blog::find($slug),
+        'blog' => Blog::findOrFail($slug),
     ]);
 })->where('blog','[A-z0-9\-_.]+');
+

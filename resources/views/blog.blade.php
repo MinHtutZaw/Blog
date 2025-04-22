@@ -8,6 +8,6 @@
 
     <p>{{$blog->body}}</p>
 
-    <a href="/blogs">Back</a>
+    <a href="/">Back</a>
 
 </x-layout>
