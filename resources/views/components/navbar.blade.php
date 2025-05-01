@@ -1,9 +1,9 @@
   <!-- Navbar -->
-
+<!-- 
   <header>
       <a href="../html/index.html" class="logo"> <span> SDC</span> </a>
 
-      <!-- hamburger menu  -->
+      
       <input type="checkbox" id="menu-toggle" >
       <label for="menu-toggle" class="menu-icon"> 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
@@ -31,4 +31,17 @@
 
        
       </ul>
-</header>
+</header> -->
+
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="./index.html" class="text-xl font-bold">Creative Coder</a>
+        <div class="flex space-x-4">
+          <a href="/" class="hover:underline">Home</a>
+          <a href="/#blogs" class="hover:underline">Blogs</a>
+          <a href="#subscribe" class="hover:underline">Subscribe</a>
+        </div>
+      </div>
+    </nav>

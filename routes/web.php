@@ -20,7 +20,8 @@ use function PHPUnit\Framework\fileExists;
 
 Route::get('/', function () {
     return view('blogs',[
-        'blogs' =>Blog::all(),
+        'blogs' =>Blog::latest()->get(),
+        'categories'=>Category::all()
     ]
 
 );
@@ -29,19 +30,25 @@ Route::get('/', function () {
 
 Route::get('/blogs/{blog:slug}',function(Blog $blog){
     return view('blog',[
-        'blog' => $blog   //Blog::findOrFail($id)
+        'blog' => $blog  , //Blog::findOrFail($id)
+        'randomBlogs'=> Blog::inRandomOrder()->take(3)->get(),
+        
     ]);
 })->where('blog','[A-z0-9\-_.]+');
 
 Route::get('/categories/{category:slug}',function(Category $category){
     return view('blogs',[
-        'blogs'=> $category->blogs
+        'blogs'=> $category->blogs,
+        'categories'=>Category::all(),
+        'currentCategory'=>$category
+
     ]);
 });
 
-Route::get('/users/{user}',function(User $user){
+Route::get('/users/{user:username}',function(User $user){
     return view('blogs',[
-        'blogs'=> $user->blogs
+        'blogs'=> $user->blogs,
+        'categories'=>Category::all()
     ]);
 });
 
