@@ -24,6 +24,8 @@ Route::get('/', function () {
         $blogs = $blogs->where(function($query) {
             $query->where('title', 'like', '%' . request('search') . '%')
                   ->orWhere('intro', 'like', '%' . request('search') . '%');
+        })->orWhereHas('author', function($query) {
+            $query->where('name', 'like', '%' . request('search') . '%');
         });
     }
     return view('blogs',[
