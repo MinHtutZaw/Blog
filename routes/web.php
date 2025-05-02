@@ -19,12 +19,17 @@ use function PHPUnit\Framework\fileExists;
 */
 
 Route::get('/', function () {
+    $blogs = Blog::latest();    
+    if(request('search')){
+        $blogs = $blogs->where(function($query) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                  ->orWhere('intro', 'like', '%' . request('search') . '%');
+        });
+    }
     return view('blogs',[
-        'blogs' =>Blog::latest()->get(),
+        'blogs' =>$blogs->get(),
         'categories'=>Category::all()
-    ]
-
-);
+    ]);
 });
  
 

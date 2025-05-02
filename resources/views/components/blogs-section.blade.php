@@ -38,10 +38,12 @@
 
 
   </div>
-  <form class="max-w-md mx-auto mb-6">
+  <form class="max-w-md mx-auto mb-6" action=" " >
     <div class="flex">
       <input
         type="text"
+        name="search"
+        value="{{ request('search') }}"
         placeholder="Search Blogs..."
         class="w-full px-4 py-2 border border-gray-300 rounded-l focus:outline-none" />
       <button
