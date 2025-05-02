@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Blog;
 use App\Models\Category;
@@ -7,41 +8,12 @@ use App\Models\User;
 
 use function PHPUnit\Framework\fileExists;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    $blogs = Blog::latest();    
-    if(request('search')){
-        $blogs = $blogs->where(function($query) {
-            $query->where('title', 'like', '%' . request('search') . '%')
-                  ->orWhere('intro', 'like', '%' . request('search') . '%');
-        })->orWhereHas('author', function($query) {
-            $query->where('name', 'like', '%' . request('search') . '%');
-        });
-    }
-    return view('blogs',[
-        'blogs' =>$blogs->get(),
-        'categories'=>Category::all()
-    ]);
-});
+
+Route::get('/', [BlogController::class, 'index']);
  
 
-Route::get('/blogs/{blog:slug}',function(Blog $blog){
-    return view('blog',[
-        'blog' => $blog  , //Blog::findOrFail($id)
-        'randomBlogs'=> Blog::inRandomOrder()->take(3)->get(),
-        
-    ]);
-})->where('blog','[A-z0-9\-_.]+');
+Route::get('/blogs/{blog:slug}',[BlogController::class,'showBlog']);
 
 Route::get('/categories/{category:slug}',function(Category $category){
     return view('blogs',[
