@@ -37,7 +37,7 @@
     <!-- Navbar -->
     <nav class="bg-gray-900 text-white">
       <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="./index.html" class="text-xl font-bold">Creative Coder</a>
+        <a href="/" class="text-xl font-bold">Test</a>
         <div class="flex space-x-4">
           <a href="/" class="hover:underline">Home</a>
           <a href="/#blogs" class="hover:underline">Blogs</a>

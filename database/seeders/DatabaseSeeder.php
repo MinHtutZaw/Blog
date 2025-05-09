@@ -22,21 +22,13 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Blog::truncate();
         Category::truncate();
+        $user1=User::factory()->create(['name'=>'Leo','username'=>'leo']);
+        $user2=User::factory()->create(['name'=>'jame','username'=>'jame']);
+        $frontend=Category::factory()->create(['name'=>'frontend','slug'=>'frontend']);
+        $backend=Category::factory()->create(['name'=>'backend','slug'=>'backend']);
         
-        $frontend = Category::factory()->create([
-            'name' =>'Frontend',
-            'slug'=> 'Frontend'
-        ]);
-        $backend = Category::factory()->create([
-            'name' =>'Backend',
-            'slug'=> 'Backend'
-        ]);
-
-        User::factory()->create();
-        Blog::factory(2)->create(['category_id'=>$frontend]);
-        Blog::factory(2)->create(['category_id'=>$backend]);
-        
-
+        Blog::factory(2)->create(['category_id'=>$frontend->id,'user_id'=>$user1->id]);
+        Blog::factory(2)->create(['category_id'=>$backend->id,'user_id'=>$user2->id]);
     }
     
 }

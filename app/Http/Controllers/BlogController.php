@@ -11,8 +11,8 @@ class BlogController extends Controller
     public function index() {
       
         return view('blogs',[
-            'blogs' =>$this->getBlogs(),
-            'categories'=>Category::all()
+            'blogs'=>Blog::latest()->filter(request(['search','category','username']))->get(),
+          
         ]);
     }
 
@@ -24,16 +24,5 @@ class BlogController extends Controller
         ]);
     }
 
-    protected function getBlogs(){
-        $blogs = Blog::latest();    
-        if(request('search')){
-            $blogs = $blogs->where(function($query) {
-                $query->where('title', 'like', '%' . request('search') . '%')
-                      ->orWhere('intro', 'like', '%' . request('search') . '%');
-            })->orWhereHas('author', function($query) {
-                $query->where('name', 'like', '%' . request('search') . '%');
-            });
-        }   
-        return $blogs->get();
-    }
+
 }
