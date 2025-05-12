@@ -1,5 +1,5 @@
   <!-- Navbar -->
-<!-- 
+  <!-- 
   <header>
       <a href="../html/index.html" class="logo"> <span> SDC</span> </a>
 
@@ -34,14 +34,25 @@
 </header> -->
 
 
-    <!-- Navbar -->
-    <nav class="bg-gray-900 text-white">
-      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="/" class="text-xl font-bold">Test</a>
-        <div class="flex space-x-4">
-          <a href="/" class="hover:underline">Home</a>
-          <a href="/#blogs" class="hover:underline">Blogs</a>
-          <a href="#subscribe" class="hover:underline">Subscribe</a>
-        </div>
+  <!-- Navbar -->
+  <nav class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-xl font-bold">Test</a>
+      <div class="flex space-x-4">
+        <a href="/" class="hover:text-blue-500">Home</a>
+        <a href="/#blogs" class="hover:text-blue-500">Blogs</a>
+        <a href="#subscribe" class="hover:text-blue-500">Subscribe</a>
+        @auth
+          <a href="" class="nav-link"> {{auth()->user()->name}}</a>
+          <form action="/logout" method="POST">
+            @csrf
+            <button type="submit" href="" class="hover:text-blue-500">Logout</button>
+          </form>
+          @else
+          <a href="/register" class="hover:text-blue-500">Sign In</a>
+          <a href="/login" class="hover:text-blue-500">Login</a>
+
+        @endauth
       </div>
-    </nav>
+    </div>
+  </nav>

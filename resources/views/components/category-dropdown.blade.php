@@ -6,6 +6,13 @@
       </summary>
       <ul
         class="absolute mt-2 left-0 w-40 bg-white border border-gray-200 rounded shadow-md z-10">
+        <li>
+          <a
+            href="/"
+            class="block px-4 py-2 hover:bg-gray-100 text-gray-700">
+            All Categories
+          </a>
+        </li>
         @foreach ($categories as $category)
         <li>
           <a

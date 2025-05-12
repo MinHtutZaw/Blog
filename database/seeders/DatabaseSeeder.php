@@ -29,6 +29,9 @@ class DatabaseSeeder extends Seeder
         
         Blog::factory(2)->create(['category_id'=>$frontend->id,'user_id'=>$user1->id]);
         Blog::factory(2)->create(['category_id'=>$backend->id,'user_id'=>$user2->id]);
+
+        Blog::factory(10)->create();
+        
     }
     
 }
