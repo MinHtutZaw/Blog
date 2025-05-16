@@ -21,8 +21,9 @@ class UserFactory extends Factory
             'name'=>$this->faker->name(),
             'username' => $this->faker->userName(),
             'email' => $this->faker->unique()->safeEmail(),
+            'avatar' =>'https://i.pravatar.cc/150?u='.$this->faker->randomNumber(1, 100),
             'isAdmin'=> $this->faker->boolean(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password encryption
          
         ];
     }

@@ -15,17 +15,18 @@ class BlogController extends Controller
             ->filter(request(['search','category','username']))
             ->paginate(6)
             ->withQueryString(),
+
+            'randomBlogs'=> Blog::inRandomOrder()->take(3)->get(),
           
         ]);
     }
-
     public function show(Blog $blog){
         return view('blogs.show',[
             'blog' => $blog, 
-            'randomBlogs'=> Blog::inRandomOrder()->take(3)->get(),
-            
+        
         ]);
     }
+
 
 
 }

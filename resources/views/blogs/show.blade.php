@@ -25,9 +25,43 @@
         </div>
     </div>
 
-    <x-subscribe />
 
-    <x-blogs_you_may_like :randomBlogs="$randomBlogs" />
+    <section class="container mx-auto px-4">
+        <div class="max-w-2xl mx-auto">
+            @auth
+            <x-card-wrapper>
+                <form
+                    action="/blogs/{{$blog->slug}}/comments"
+                    method="POST">
+                    @csrf
+                    <div class="mb-4">
+                        <textarea
+                            name="body"
+                            cols="10"
+                            rows="5"
+                            placeholder="say something..."
+                            class="w-full border-0 rounded p-3 focus:outline-none focus:ring focus:ring-blue-300 resize-none">
+                        </textarea>
+                        <x-error name="body"/>
+                    </div>
+                    <div class="flex justify-end">
+                        <button
+                            type="submit"
+                            class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">Submit</button>
+                    </div>
+                </form>
+            </x-card-wrapper>
+            @else
+            <p class="text-center">please <a href="/login" class="underline text-blue-500">login</a> to participate in this discussion.</p>
+            @endauth
+        </div>
+    </section>
+
+    <x-comments :comments="$blog->comments" />
+    
+
+   
+
 
 
 </x-layout>

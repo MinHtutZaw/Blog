@@ -1,7 +1,7 @@
 @props(['blogs'])
 
 <section class="max-w-7xl mx-auto px-4 " id="blogs">
-  <h2 class="text-3xl font-bold text-center mb-8">Blogs</h2>
+  <h2 class="text-3xl font-bold text-center mb-8 mt-4">Recipes</h2>
 
   <form class="max-w-4xl mx-auto mb-6" action="">
     <div class="flex flex-wrap items-center gap-4">

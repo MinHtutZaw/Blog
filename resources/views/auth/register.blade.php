@@ -21,18 +21,7 @@
                             <x-error name="name"></x-error>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="username" class="block text-gray-700 font-medium mb-2">Username</label>
-                            <input
-                                type="text"
-                                id="username"
-                                name="username" 
-                                class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                value="{{old('username')}}"
-                                required
-                            >
-                            <x-error name="username"></x-error>
-                        </div>
+                        
 
                         <div class="mb-4">
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email address</label>

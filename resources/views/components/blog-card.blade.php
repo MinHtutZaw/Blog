@@ -14,7 +14,15 @@
                - <span> {{$blog->created_at->diffForHumans()}}  </span>
             </p>
             <div class="flex flex-wrap gap-1 mt-3 justify-center ">
-              <span class="bg-red-600 text-white text-xs px-2 py-1 rounded  ">
+              <span class="bg-blue-500 text-white text-xs px-2 py-1 rounded  ">
+                <a href="/?category={{$blog->category->slug}}">{{$blog->category->name}} </a>
+                
+              </span>
+               <span class="bg-red-500 text-white text-xs px-2 py-1 rounded  ">
+                <a href="/?category={{$blog->category->slug}}">{{$blog->category->name}} </a>
+                
+              </span>
+               <span class="bg-green-600 text-white text-xs px-2 py-1 rounded  ">
                 <a href="/?category={{$blog->category->slug}}">{{$blog->category->name}} </a>
                 
               </span>
@@ -23,7 +31,7 @@
             <p class="text-sm mt-3">
               {{$blog->intro}}
             </p>
-            <a   href="/blogs/{{$blog->slug}}" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Read More</a>
+            <a   href="/blogs/{{$blog->slug}}" class="inline-block mt-4 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-700">Read More</a>
           </div>
 
 

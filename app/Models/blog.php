@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected $guarded =[]; // fillable 
+     
     protected $with = ['category','author']; //eager loading
 
     public function scopeFilter($query, $filter)//Blog::latest()->filter()
@@ -38,6 +38,10 @@ class Blog extends Model
     }
     public function author(){
         return $this->belongsTo(User::class,'user_id');
+    }
+     public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
 }
